@@ -20,6 +20,18 @@ const double Lf = 2;
 Eigen::VectorXd globalKinematic(Eigen::VectorXd state,
                                 Eigen::VectorXd actuators, double dt) {
   Eigen::VectorXd next_state(state.size());
+
+  double x = state[0];
+  double y = state[1];
+  double psi = state[2];
+  double v = state[3];
+
+  double x1 = x + v * cos(psi) * dt;
+  double y1 = y + v * sin(psi) * dt;
+  double psi1 = psi + (v/Lf * actuators[0] * dt);
+  double v1 = v + actuators[1] * dt;
+
+  next_state << x1, y1, psi1, v1;
   return next_state;
 }
 
