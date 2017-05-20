@@ -1,0 +1,6 @@
+{
+	"cmd": "mkdir build ; cd build && cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DCMAKE_BUILD_TYPE=Debug .. && make -j8",
+	"name": "cmake",
+	"sh": true,
+	"cwd": "{PROJECT_PATH}"
+}
